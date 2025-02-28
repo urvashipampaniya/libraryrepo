@@ -6,7 +6,7 @@ from app.config.database import get_db
 from app.models.domains.loans import Loan
 from app.schema.loans import LoanCreate, LoanResponse
 
-router = APIRouter(prefix="/loans", tags=["loanss"])
+router = APIRouter(prefix="/loans", tags=["loans"])
 
 @router.get("/", response_model=List[LoanResponse])
 async def get_loans(db: AsyncSession = Depends(get_db)):
