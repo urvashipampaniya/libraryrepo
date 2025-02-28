@@ -6,7 +6,7 @@ from app.config.database import get_db
 from app.models.domains.books import Book
 from app.schema.books import BookCreate, BookResponse
 
-router = APIRouter()
+router = APIRouter(prefix="/books", tags=["books"])
 
 @router.get("/", response_model=List[BookResponse])
 async def get_books(db: AsyncSession = Depends(get_db)):

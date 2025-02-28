@@ -6,7 +6,7 @@ from app.config.database import get_db
 from app.models.domains.members import Member
 from app.schema.members import MemberCreate, MemberResponse
 
-router = APIRouter()
+router = APIRouter(prefix="/members", tags=["members"])
 
 @router.get("/", response_model=List[MemberResponse])
 async def get_members(db: AsyncSession = Depends(get_db)):
